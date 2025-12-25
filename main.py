@@ -15,15 +15,18 @@ def parse_int_list(prompt: str) -> List[int]:
 
 def task_1(arr_a: List[int], arr_b: List[int]) -> Set[int]:
     """Элементы, встречающиеся >1 раза в A или B."""
-    pass  # Заглушка, будет реализовано позже
+    cnt_a, cnt_b = Counter(arr_a), Counter(arr_b)
+    return {e for e in set(arr_a + arr_b)
+            if cnt_a[e] > 1 or cnt_b[e] > 1}
 
 def task_2(arr_a: List[int], arr_b: List[int]) -> Set[int]:
     """Элементы, повторяющиеся в B, но ровно 1 раз в A."""
-    pass  # Заглушка, будет реализовано позже
+    cnt_a, cnt_b = Counter(arr_a), Counter(arr_b)
+    return {e for e in cnt_b if cnt_b[e] > 1 and cnt_a[e] == 1}
 
 def task_3(arr_a: List[int], arr_b: List[int]) -> Set[int]:
     """Элементы из A, отсутствующие в B."""
-    pass  # Заглушка, будет реализовано позже
+    return set(arr_a) - set(arr_b)
 
 def main() -> None:
     """Основная функция программы"""
