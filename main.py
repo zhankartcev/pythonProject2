@@ -3,55 +3,23 @@ from typing import List, Set
 
 def parse_int_list(prompt: str) -> List[int]:
     """Парсит строку с числами, разделёнными пробелами, в список целых чисел."""
-    while True:
-        raw = input(prompt).strip()
-        if not raw:
-            print('Пустая строка. Попробуйте ещё раз.')
-            continue
-        try:
-            return [int(x) for x in raw.split()]
-        except ValueError:
-            print('Можно вводить только числа через пробел.')
+    pass  # Заглушка, будет реализовано позже
 
 def task_1(arr_a: List[int], arr_b: List[int]) -> Set[int]:
     """Элементы, встречающиеся >1 раза в A или B."""
-    cnt_a, cnt_b = Counter(arr_a), Counter(arr_b)
-    return {e for e in set(arr_a + arr_b)
-            if cnt_a[e] > 1 or cnt_b[e] > 1}
+    pass  # Заглушка, будет реализовано позже
 
 def task_2(arr_a: List[int], arr_b: List[int]) -> Set[int]:
     """Элементы, повторяющиеся в B, но ровно 1 раз в A."""
-    cnt_a, cnt_b = Counter(arr_a), Counter(arr_b)
-    return {e for e in cnt_b if cnt_b[e] > 1 and cnt_a[e] == 1}
+    pass  # Заглушка, будет реализовано позже
 
 def task_3(arr_a: List[int], arr_b: List[int]) -> Set[int]:
     """Элементы из A, отсутствующие в B."""
-    return set(arr_a) - set(arr_b)
+    pass  # Заглушка, будет реализовано позже
 
 def main() -> None:
     """Основная функция программы"""
-    menu = (
-        '\n=== МЕНЮ ===\n'
-        '1 – Элементы, повторяющиеся в A или B\n'
-        '2 – Повторяющиеся в B, но 1 раз в A\n'
-        '3 – Есть в A, но нет в B\n'
-        '0 – Выход\n'
-    )
-    actions = {'1': task_1, '2': task_2, '3': task_3}
-
-    while True:
-        choice = input(menu + 'Ваш выбор: ').strip()
-        if choice == '0':
-            print('Пока!')
-            break
-        if choice not in actions:
-            print('Некорректный ввод.')
-            continue
-
-        first = parse_int_list('Введите массив A: ')
-        second = parse_int_list('Введите массив B: ')
-        result = actions[choice](first, second)
-        print(f'Результат: {sorted(result) if result else "пусто"}')
+    pass  # Заглушка, будет реализовано позже
 
 if __name__ == '__main__':
     main()
