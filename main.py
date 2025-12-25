@@ -79,10 +79,13 @@ def main() -> None:
             print('Некорректный ввод.')
             continue
 
-        first = parse_int_list('Введите массив A: ')
-        second = parse_int_list('Введите массив B: ')
-        result = actions[choice](first, second)
-        print(f'Результат: {sorted(result) if result else "пусто"}')
+        try:
+            first = parse_int_list('Введите массив A: ')
+            second = parse_int_list('Введите массив B: ')
+            result = actions[choice](first, second)
+            print(f'Результат: {sorted(result) if result else "пусто"}')
+        except Exception as e:
+            print(f"Произошла ошибка: {e}")
 
 if __name__ == '__main__':
     main()
