@@ -15,14 +15,14 @@ def parse_int_list(prompt: str) -> List[int]:
 
 def task_1(arr_a: List[int], arr_b: List[int]) -> Set[int]:
     """Элементы, встречающиеся >1 раза в A или B."""
-    cnt_a, cnt_b = Counter(arr_a), Counter(arr_b)
+    count_a, count_b = Counter(arr_a), Counter(arr_b)
     return {e for e in set(arr_a + arr_b)
-            if cnt_a[e] > 1 or cnt_b[e] > 1}
+            if count_a[e] > 1 or count_b[e] > 1}
 
 def task_2(arr_a: List[int], arr_b: List[int]) -> Set[int]:
     """Элементы, повторяющиеся в B, но ровно 1 раз в A."""
-    cnt_a, cnt_b = Counter(arr_a), Counter(arr_b)
-    return {e for e in cnt_b if cnt_b[e] > 1 and cnt_a[e] == 1}
+    count_a, count_b = Counter(arr_a), Counter(arr_b)
+    return {e for e in count_b if count_b[e] > 1 and count_a[e] == 1}
 
 def task_3(arr_a: List[int], arr_b: List[int]) -> Set[int]:
     """Элементы из A, отсутствующие в B."""
