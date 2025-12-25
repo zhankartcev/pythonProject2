@@ -2,7 +2,14 @@ from collections import Counter
 from typing import List, Set
 
 def parse_int_list(prompt: str) -> List[int]:
-    """Парсит строку с числами, разделёнными пробелами, в список целых чисел."""
+    """Парсит строку с числами, разделёнными пробелами, в список целых чисел.
+
+    Args:
+        prompt (str): Приглашение для ввода чисел.
+
+    Returns:
+        List[int]: Список целых чисел, введённых пользователем.
+    """
     while True:
         raw = input(prompt).strip()
         if not raw:
@@ -14,18 +21,42 @@ def parse_int_list(prompt: str) -> List[int]:
             print('Можно вводить только числа через пробел.')
 
 def task_1(arr_a: List[int], arr_b: List[int]) -> Set[int]:
-    """Элементы, встречающиеся >1 раза в A или B."""
+    """Элементы, встречающиеся >1 раза в A или B.
+
+    Args:
+        arr_a (List[int]): Первый список чисел.
+        arr_b (List[int]): Второй список чисел.
+
+    Returns:
+        Set[int]: Множество элементов, встречающихся более одного раза в A или B.
+    """
     count_a, count_b = Counter(arr_a), Counter(arr_b)
     return {e for e in set(arr_a + arr_b)
             if count_a[e] > 1 or count_b[e] > 1}
 
 def task_2(arr_a: List[int], arr_b: List[int]) -> Set[int]:
-    """Элементы, повторяющиеся в B, но ровно 1 раз в A."""
+    """Элементы, повторяющиеся в B, но ровно 1 раз в A.
+
+    Args:
+        arr_a (List[int]): Первый список чисел.
+        arr_b (List[int]): Второй список чисел.
+
+    Returns:
+        Set[int]: Множество элементов, повторяющихся в B, но ровно 1 раз в A.
+    """
     count_a, count_b = Counter(arr_a), Counter(arr_b)
     return {e for e in count_b if count_b[e] > 1 and count_a[e] == 1}
 
 def task_3(arr_a: List[int], arr_b: List[int]) -> Set[int]:
-    """Элементы из A, отсутствующие в B."""
+    """Элементы из A, отсутствующие в B.
+
+    Args:
+        arr_a (List[int]): Первый список чисел.
+        arr_b (List[int]): Второй список чисел.
+
+    Returns:
+        Set[int]: Множество элементов из A, отсутствующих в B.
+    """
     return set(arr_a) - set(arr_b)
 
 def main() -> None:
