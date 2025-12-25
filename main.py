@@ -30,7 +30,28 @@ def task_3(arr_a: List[int], arr_b: List[int]) -> Set[int]:
 
 def main() -> None:
     """Основная функция программы"""
-    pass  # Заглушка, будет реализовано позже
+    menu = (
+        '\n=== МЕНЮ ===\n'
+        '1 – Элементы, повторяющиеся в A или B\n'
+        '2 – Повторяющиеся в B, но 1 раз в A\n'
+        '3 – Есть в A, но нет в B\n'
+        '0 – Выход\n'
+    )
+    actions = {'1': task_1, '2': task_2, '3': task_3}
+
+    while True:
+        choice = input(menu + 'Ваш выбор: ').strip()
+        if choice == '0':
+            print('Пока!')
+            break
+        if choice not in actions:
+            print('Некорректный ввод.')
+            continue
+
+        first = parse_int_list('Введите массив A: ')
+        second = parse_int_list('Введите массив B: ')
+        result = actions[choice](first, second)
+        print(f'Результат: {sorted(result) if result else "пусто"}')
 
 if __name__ == '__main__':
     main()
